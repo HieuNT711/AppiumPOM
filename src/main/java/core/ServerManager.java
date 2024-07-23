@@ -1,15 +1,15 @@
-//package core;
+// package core;
 //
-//import com.utils.TestUtils;
-//import io.appium.java_client.service.local.AppiumDriverLocalService;
-//import io.appium.java_client.service.local.AppiumServerHasNotBeenStartedLocallyException;
-//import io.appium.java_client.service.local.AppiumServiceBuilder;
-//import io.appium.java_client.service.local.flags.GeneralServerFlag;
+// import com.utils.TestUtils;
+// import io.appium.java_client.service.local.AppiumDriverLocalService;
+// import io.appium.java_client.service.local.AppiumServerHasNotBeenStartedLocallyException;
+// import io.appium.java_client.service.local.AppiumServiceBuilder;
+// import io.appium.java_client.service.local.flags.GeneralServerFlag;
 //
-//import java.io.File;
-//import java.util.HashMap;
+// import java.io.File;
+// import java.util.HashMap;
 //
-//public class ServerManager {
+// public class ServerManager {
 //    private static final ThreadLocal<AppiumDriverLocalService> server = new ThreadLocal<>();
 //    TestUtils utils = new TestUtils();
 //
@@ -57,7 +57,8 @@
 //        HashMap<String, String> environment = new HashMap<String, String>();
 //        environment.put(
 //                "PATH",
-//                "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/admin/.cargo/bin"
+//
+// "/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/Users/admin/.cargo/bin"
 //                        + System.getenv("PATH"));
 //        environment.put("ANDROID_HOME", "/Users/sotatek/Library/Android/sdk");
 //        return AppiumDriverLocalService.buildService(
@@ -76,4 +77,4 @@
 //                                                + File.separator
 //                                                + "Server.log")));
 //    }
-//}
+// }

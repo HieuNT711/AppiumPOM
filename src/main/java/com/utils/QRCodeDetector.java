@@ -29,10 +29,10 @@ public class QRCodeDetector {
         }
     }
 
-//    @SneakyThrows
-//    public static void takeScreenShot(String imageName) {
-//        File screenshot = new DriverManager().getDriver().getScreenshotAs(OutputType.FILE);
-//        FileUtils.copyFile(screenshot, new File(imageName), true);
-//        // scenario.attach(screenshot, "image/png", scenario.getName());
-//    }
+    //    @SneakyThrows
+    //    public static void takeScreenShot(String imageName) {
+    //        File screenshot = new DriverManager().getDriver().getScreenshotAs(OutputType.FILE);
+    //        FileUtils.copyFile(screenshot, new File(imageName), true);
+    //        // scenario.attach(screenshot, "image/png", scenario.getName());
+    //    }
 }

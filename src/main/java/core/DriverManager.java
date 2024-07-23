@@ -1,6 +1,7 @@
 package core;
 
 import com.utils.TestUtils;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
@@ -23,7 +24,7 @@ public class DriverManager {
     public void initializeDriver() throws Exception {
         AppiumDriver driver = null;
         GlobalParams params = new GlobalParams();
-//        PropertyManager props = new PropertyManager();
+        //        PropertyManager props = new PropertyManager();
         if (driver == null) {
             try {
                 utils.log().info("initializing Appium driver");
@@ -31,7 +32,9 @@ public class DriverManager {
                     case "Android":
                         driver =
                                 new AndroidDriver<>(
-                                        new URL(PropertiesManager.getEnvironmentSpecFromProperty("appiumURL")),
+                                        new URL(
+                                                PropertiesManager.getEnvironmentSpecFromProperty(
+                                                        "appiumURL")),
                                         //                                        new
                                         // ServerManager().getServer().getUrl(),
                                         new CapabilitiesManager().getCaps());
@@ -39,7 +42,9 @@ public class DriverManager {
                     case "iOS":
                         driver =
                                 new IOSDriver(
-                                        new URL(PropertiesManager.getEnvironmentSpecFromProperty("appiumURL")),
+                                        new URL(
+                                                PropertiesManager.getEnvironmentSpecFromProperty(
+                                                        "appiumURL")),
                                         //                                         new
                                         // ServerManager().getServer().getUrl(),
                                         new CapabilitiesManager().getCaps());

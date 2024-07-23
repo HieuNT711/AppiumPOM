@@ -13,8 +13,8 @@ import io.cucumber.testng.CucumberOptions;
             "summary",
             "me.jvt.cucumber.report.PrettyReports:report/IOS"
         },
-//        features = {"src/test/resources/debug"},
-                features = {"src/test/resources/features/ios"},
+        //        features = {"src/test/resources/debug"},
+        features = {"src/test/resources/features/ios"},
         glue = {"com.qa.stepdef"},
         dryRun = false,
         monochrome = true,

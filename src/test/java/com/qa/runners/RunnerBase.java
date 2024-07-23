@@ -2,9 +2,11 @@ package com.qa.runners;
 
 import core.DriverManager;
 import core.GlobalParams;
+
 import io.cucumber.testng.FeatureWrapper;
 import io.cucumber.testng.PickleWrapper;
 import io.cucumber.testng.TestNGCucumberRunner;
+
 import org.apache.logging.log4j.ThreadContext;
 import org.testng.annotations.*;
 
@@ -21,13 +23,13 @@ public class RunnerBase {
     }
 
     @Parameters({
-            "platformName",
-            "udid",
-            "deviceName",
-            "systemPort",
-            "chromeDriverPort",
-            "wdaLocalPort",
-            "webkitDebugProxyPort"
+        "platformName",
+        "udid",
+        "deviceName",
+        "systemPort",
+        "chromeDriverPort",
+        "wdaLocalPort",
+        "webkitDebugProxyPort"
     })
     @BeforeClass(alwaysRun = true)
     public void setUpClass(
@@ -56,7 +58,7 @@ public class RunnerBase {
                 break;
         }
 
-//        new ServerManager().startServer();
+        //        new ServerManager().startServer();
         new DriverManager().initializeDriver();
 
         setRunner(new TestNGCucumberRunner(this.getClass()));

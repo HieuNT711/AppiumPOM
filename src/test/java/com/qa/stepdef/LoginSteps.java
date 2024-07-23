@@ -1,10 +1,10 @@
 package com.qa.stepdef;
 
-
 import com.qa.pages.IntroPage;
-import context.ScenarioContext;
-import io.cucumber.java.en.When;
 
+import context.ScenarioContext;
+
+import io.cucumber.java.en.When;
 
 public class LoginSteps extends BaseSteps {
     IntroPage introPage = new IntroPage();
@@ -18,6 +18,4 @@ public class LoginSteps extends BaseSteps {
     public void loginAPI() {
         introPage.tapShopNowButton();
     }
-
-
 }

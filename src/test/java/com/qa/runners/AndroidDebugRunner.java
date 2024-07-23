@@ -14,11 +14,13 @@ import io.cucumber.testng.CucumberOptions;
             "me.jvt.cucumber.report.PrettyReports:report/Android",
             //                "com.epam.reportportal.cucumber.ScenarioReporter"
         },
-//        features = {"src/test/resources/features/android"},
-                features = {"D:\\AppiumCode\\app-autotest\\src\\test\\resources\\features\\android\\Debug.feature"},
+        //        features = {"src/test/resources/features/android"},
+        features = {
+            "D:\\AppiumCode\\app-autotest\\src\\test\\resources\\features\\android\\Debug.feature"
+        },
         glue = {"com.qa.stepdef"},
         dryRun = false,
         monochrome = true
-//        tags = "@Android and not @ignore"
+        //        tags = "@Android and not @ignore"
         )
 public class AndroidDebugRunner extends RunnerBase {}

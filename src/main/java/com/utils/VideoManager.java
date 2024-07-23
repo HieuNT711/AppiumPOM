@@ -2,6 +2,7 @@ package com.utils;
 
 import core.DriverManager;
 import core.GlobalParams;
+
 import io.appium.java_client.screenrecording.CanRecordScreen;
 
 import org.apache.commons.codec.binary.Base64;

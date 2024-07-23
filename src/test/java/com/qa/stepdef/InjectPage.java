@@ -1,8 +1,8 @@
-//package com.qa.stepdef;
+// package com.qa.stepdef;
 //
-//import com.qa.pages.IntroPage;
+// import com.qa.pages.IntroPage;
 //
-//public class InjectPage {
+// public class InjectPage {
 //    IntroPage introPage = new IntroPage();
 //    public InjectPage(){}
-//}
+// }

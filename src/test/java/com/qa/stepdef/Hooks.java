@@ -1,8 +1,8 @@
 package com.qa.stepdef;
 
-import core.DriverManager;
-
 import context.ScenarioContext;
+
+import core.DriverManager;
 
 import io.cucumber.java.*;
 
@@ -22,23 +22,25 @@ public class Hooks {
 
     public static Scenario scenario;
 
-//        @Before
-//        public void initialize() {
-//            System.out.println("Run here");
-////            AppiumDriver appiumDriver = new DriverManager().getDriver();
-////            WebDriverWait wait = new WebDriverWait(appiumDriver, 15);
-////            if (new GlobalParams().getPlatformName().equalsIgnoreCase("Android")){
-////                try{
-////                    wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@resource-id=\"content\"]")));
-////                    if (appiumDriver.findElement(By.xpath("//*[@resource-id=\"content\"]")).isDisplayed()){
-////                        appiumDriver.navigate().back();
-////                    }
-////                } catch (Exception e){
-////                    //ignore
-////                }
-////            }
-//            //        new VideoManager().startRecording();
-//        }
+    //        @Before
+    //        public void initialize() {
+    //            System.out.println("Run here");
+    ////            AppiumDriver appiumDriver = new DriverManager().getDriver();
+    ////            WebDriverWait wait = new WebDriverWait(appiumDriver, 15);
+    ////            if (new GlobalParams().getPlatformName().equalsIgnoreCase("Android")){
+    ////                try{
+    ////
+    // wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@resource-id=\"content\"]")));
+    ////                    if
+    // (appiumDriver.findElement(By.xpath("//*[@resource-id=\"content\"]")).isDisplayed()){
+    ////                        appiumDriver.navigate().back();
+    ////                    }
+    ////                } catch (Exception e){
+    ////                    //ignore
+    ////                }
+    ////            }
+    //            //        new VideoManager().startRecording();
+    //        }
 
     //    @AfterStep
     //    public void afterSteps(Scenario scenario){
@@ -57,8 +59,8 @@ public class Hooks {
         scenario.attach(screenshot, "image/png", scenario.getName());
         //        new VideoManager().stopRecording(scenario.getName());
         //        scenarioContext.clearAllDataInThreadContext();
-//        new DriverManager().getDriver().closeApp();
+        //        new DriverManager().getDriver().closeApp();
         new DriverManager().getDriver().launchApp();
-//        Thread.sleep(5000);
+        //        Thread.sleep(5000);
     }
 }
