@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite Parallel" parallel="tests">
+    <test name="Run with platform Android">
+        <parameter name="platformName" value="Android"/>
+        <parameter name="udid" value="knr8lv79nrwgqs7d"/>
+        <parameter name="deviceName" value="Xiaomi 11T"/>
+        <parameter name="systemPort" value="10000"/>
+        <parameter name="chromeDriverPort" value="11000"/>
+        <classes>
+            <class name="com.qa.runners.AndroidRunnerTest"/>
+        </classes>
+    </test>
+
+    <test name="Run with platform iOS">
+        <parameter name="platformName" value="iOS"/>
+        <parameter name="udid" value="88b47a52c63057df11014d4ef4b0b44814220e8a"/>
+        <parameter name="deviceName" value="iPhone X"/>
+        <parameter name="wdaLocalPort" value="10001"/>
+        <parameter name="webkitDebugProxyPort" value="11001"/>
+        <classes>
+            <class name="com.qa.runners.IOSRunnerTest"/>
+        </classes>
+    </test>
+</suite> <!-- Suite -->
+
+

@@ -1,0 +1,17 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.0.1
+  hooks:
+  - id: check-merge-conflict
+  - id: end-of-file-fixer
+    files: ^.*\.java$
+  - id: trailing-whitespace
+  - id: detect-private-key
+
+- repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
+  rev: v2.0.0
+  hooks:
+  - id: pretty-format-java
+    args: [--aosp, --autofix]
+  - id: pretty-format-yaml
+    args: [--autofix, --indent, '2']
