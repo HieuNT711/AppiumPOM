@@ -14,8 +14,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>15</source>
-                    <target>15</target>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -44,6 +44,8 @@
         <testng.version>7.10.1</testng.version>
         <clean.folder.path>target/site</clean.folder.path>
         <runner>Runner</runner>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
     <dependencies>
