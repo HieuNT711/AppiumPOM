@@ -8,15 +8,17 @@ import io.cucumber.testng.CucumberOptions;
  */
 @CucumberOptions(
         plugin = {
-            "pretty",
-            "html:target/IOS/cucumber",
-            "summary",
-            "me.jvt.cucumber.report.PrettyReports:report/IOS"
+                "pretty",
+                "html:target/Android/cucumber",
+                "summary",
+                "me.jvt.cucumber.report.PrettyReports:report/Android",
+                //                "com.epam.reportportal.cucumber.ScenarioReporter"
         },
+        //        features = {"src/test/resources/features/android"},
         features = {"src/test/resources/features/android/Debug.feature"},
         glue = {"com.qa.stepdef"},
         dryRun = false,
         monochrome = true
-//        tags = "@iOS and not @ignore"
+        //        tags = "@Android and not @ignore"
 )
-public class IOSRunnerTest extends RunnerBase {}
+public class AndroidDebugRunner2 extends RunnerBase {}
