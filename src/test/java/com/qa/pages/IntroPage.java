@@ -20,12 +20,14 @@ public class IntroPage extends BasePage {
     @iOSXCUITFindBy(accessibility = "shop now right arrow")
     @AndroidFindBy(
             xpath =
-                    "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.widget.ImageView/android.view.View/android.view.View/android.widget.EditText[1]")
+                    "//android.view.View[@content-desc=\"Chào mừng bạn\n"
+                            + "đến với MB Bank\"]/following-sibling::android.widget.EditText[1]")
     private MobileElement TenDangNhap_input;
 
     @AndroidFindBy(
             xpath =
-                    "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.widget.ImageView/android.view.View/android.view.View/android.widget.EditText[1]")
+                    "//android.view.View[@content-desc=\"Chào mừng bạn\n"
+                            + "đến với MB Bank\"]/following-sibling::android.widget.EditText[2]")
     private MobileElement MatKhau_input;
 
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Đăng nhập\"]")
@@ -42,7 +44,7 @@ public class IntroPage extends BasePage {
 
     public void loginApp() {
         click(TenDangNhap_input);
-        click(title_txt);
+        //        click(title_txt);
         sendKeys(TenDangNhap_input, "0966296851");
         click(MatKhau_input);
         sendKeys(MatKhau_input, "123456");
