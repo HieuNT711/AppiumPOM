@@ -14,8 +14,9 @@ public class LoginSteps extends BaseSteps {
         this.scenarioContext = ScenarioContext.getInstance();
     }
 
-    @When("Welcome Intro Page")
+    @When("I login in MB bank")
     public void loginAPI() {
-        introPage.tapShopNowButton();
+        introPage.verifyTaiKhoanKhac_btnIsPresent();
+        introPage.loginApp();
     }
 }

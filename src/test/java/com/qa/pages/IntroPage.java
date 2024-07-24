@@ -14,20 +14,38 @@ public class IntroPage extends BasePage {
     }
 
     @iOSXCUITFindBy(accessibility = "shop now right arrow")
-    @AndroidFindBy(xpath = "//*[@resource-id='com.banggood.client:id/tab_text']")
-    private MobileElement accountButton;
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Tài khoản khác\"]")
+    private MobileElement TaiKhoanKhac_btn;
 
     @iOSXCUITFindBy(accessibility = "shop now right arrow")
-    @AndroidFindBy(id = "com.socialgood_foundation.sg_app_android_dev:id/ivShopNow")
-    private MobileElement shopNowButton;
+    @AndroidFindBy(
+            xpath =
+                    "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.widget.ImageView/android.view.View/android.view.View/android.widget.EditText[1]")
+    private MobileElement TenDangNhap_input;
 
     @AndroidFindBy(
             xpath =
-                    "//android.widget.FrameLayout[@content-desc=\"Staking\"]/android.view.ViewGroup/android.widget.TextView")
-    private MobileElement stakingButton;
+                    "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.view.View/android.widget.ImageView/android.view.View/android.view.View/android.widget.EditText[1]")
+    private MobileElement MatKhau_input;
 
-    public void tapShopNowButton() {
-        waitForVisibility(stakingButton, 10);
-        click(stakingButton, "AB");
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Đăng nhập\"]")
+    private MobileElement DangNhap_btn;
+
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc='Chào mừng bạn\\nđến với MBBank']")
+    private MobileElement title_txt;
+
+    public void verifyTaiKhoanKhac_btnIsPresent() {
+        if (waitForElementDisplayed(TaiKhoanKhac_btn)) {
+            click(TaiKhoanKhac_btn);
+        }
+    }
+
+    public void loginApp() {
+        click(TenDangNhap_input);
+        click(title_txt);
+        sendKeys(TenDangNhap_input, "0966296851");
+        click(MatKhau_input);
+        sendKeys(MatKhau_input, "123456");
+        click(DangNhap_btn);
     }
 }

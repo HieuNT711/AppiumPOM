@@ -15,9 +15,7 @@ import io.cucumber.testng.CucumberOptions;
             //                "com.epam.reportportal.cucumber.ScenarioReporter"
         },
         //        features = {"src/test/resources/features/android"},
-        features = {
-            "D:\\AppiumCode\\app-autotest\\src\\test\\resources\\features\\android\\Debug.feature"
-        },
+        features = {"src/test/resources/features/android/Debug.feature"},
         glue = {"com.qa.stepdef"},
         dryRun = false,
         monochrome = true

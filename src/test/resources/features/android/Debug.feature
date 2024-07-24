@@ -1,4 +1,4 @@
 Feature: ABC
 
   Scenario: Demo
-    When Welcome Intro Page
+    When I login in MB bank
