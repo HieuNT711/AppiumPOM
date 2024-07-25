@@ -17,6 +17,6 @@ import io.cucumber.testng.CucumberOptions;
         glue = {"com.qa.stepdef"},
         dryRun = false,
         monochrome = true
-//        tags = "@iOS and not @ignore"
-)
+        //        tags = "@iOS and not @ignore"
+        )
 public class IOSRunnerTest extends RunnerBase {}

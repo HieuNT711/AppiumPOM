@@ -7,6 +7,8 @@
         <parameter name="deviceName" value="Xiaomi 11T"/>
         <parameter name="systemPort" value="10000"/>
         <parameter name="chromeDriverPort" value="11000"/>
+        <parameter name="deviceIndex" value="device1"/>
+        <parameter name="module" value="transfer"/>
         <classes>
             <class name="com.qa.runners.AndroidDebugRunner"/>
         </classes>
@@ -18,6 +20,8 @@
         <parameter name="deviceName" value="Xiaomi 11T"/>
         <parameter name="systemPort" value="10000"/>
         <parameter name="chromeDriverPort" value="11000"/>
+        <parameter name="deviceIndex" value="device2"/>
+        <parameter name="module" value="transfer"/>
         <classes>
             <class name="com.qa.runners.AndroidDebugRunner2"/>
         </classes>

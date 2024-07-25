@@ -1,5 +1,7 @@
 package com.qa.pages;
 
+import com.qa.runners.RunnerBase;
+
 import context.ScenarioContext;
 
 import io.appium.java_client.MobileElement;
@@ -44,10 +46,9 @@ public class IntroPage extends BasePage {
 
     public void loginApp() {
         click(TenDangNhap_input);
-        //        click(title_txt);
-        sendKeys(TenDangNhap_input, "0966296851");
+        sendKeys(TenDangNhap_input, RunnerBase.userName);
         click(MatKhau_input);
-        sendKeys(MatKhau_input, "123456");
+        sendKeys(MatKhau_input, RunnerBase.passWord);
         click(DangNhap_btn);
     }
 }

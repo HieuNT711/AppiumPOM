@@ -1,7 +1,10 @@
 package com.qa.runners;
 
+import com.utils.TestUtils;
+
 import core.DriverManager;
 import core.GlobalParams;
+import core.PropertiesManager;
 
 import io.cucumber.testng.FeatureWrapper;
 import io.cucumber.testng.PickleWrapper;
@@ -11,6 +14,9 @@ import org.apache.logging.log4j.ThreadContext;
 import org.testng.annotations.*;
 
 public class RunnerBase {
+    public static String userName;
+    public static String passWord;
+    TestUtils utils = new TestUtils();
     private static final ThreadLocal<TestNGCucumberRunner> testNGCucumberRunner =
             new ThreadLocal<>();
 
@@ -28,8 +34,10 @@ public class RunnerBase {
         "deviceName",
         "systemPort",
         "chromeDriverPort",
+        "deviceIndex",
+        "module",
         "wdaLocalPort",
-        "webkitDebugProxyPort"
+        "webkitDebugProxyPort",
     })
     @BeforeClass(alwaysRun = true)
     public void setUpClass(
@@ -38,6 +46,8 @@ public class RunnerBase {
             String deviceName,
             @Optional("Android") String systemPort,
             @Optional("Android") String chromeDriverPort,
+            @Optional String deviceIndex,
+            @Optional String module,
             @Optional("iOS") String wdaLocalPort,
             @Optional("iOS") String webkitDebugProxyPort)
             throws Exception {
@@ -57,6 +67,15 @@ public class RunnerBase {
                 params.setWdaLocalPort(wdaLocalPort);
                 break;
         }
+        utils.log().info("deviceIndex: " + deviceIndex);
+        utils.log().info("module: " + module);
+
+        userName =
+                PropertiesManager.getEnvironmentSpecFromProperty(
+                        module + "." + deviceIndex + ".username");
+        passWord =
+                PropertiesManager.getEnvironmentSpecFromProperty(
+                        module + "." + deviceIndex + ".password");
 
         //        new ServerManager().startServer();
         new DriverManager().initializeDriver();

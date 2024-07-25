@@ -8,11 +8,11 @@ import io.cucumber.testng.CucumberOptions;
  */
 @CucumberOptions(
         plugin = {
-                "pretty",
-                "html:target/Android/cucumber",
-                "summary",
-                "me.jvt.cucumber.report.PrettyReports:report/Android",
-                //                "com.epam.reportportal.cucumber.ScenarioReporter"
+            "pretty",
+            "html:target/Android/cucumber",
+            "summary",
+            "me.jvt.cucumber.report.PrettyReports:report/Android",
+            //                "com.epam.reportportal.cucumber.ScenarioReporter"
         },
         //        features = {"src/test/resources/features/android"},
         features = {"src/test/resources/features/android/Debug.feature"},
@@ -20,5 +20,5 @@ import io.cucumber.testng.CucumberOptions;
         dryRun = false,
         monochrome = true
         //        tags = "@Android and not @ignore"
-)
+        )
 public class AndroidDebugRunner2 extends RunnerBase {}

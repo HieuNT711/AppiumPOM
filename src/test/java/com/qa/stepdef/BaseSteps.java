@@ -1,12 +1,14 @@
 package com.qa.stepdef;
 
 import com.qa.pages.BasePage;
+import com.utils.TestUtils;
 
 import context.ScenarioContext;
 
 public class BaseSteps extends BasePage {
 
     protected final ScenarioContext scenarioContext;
+    TestUtils utils = new TestUtils();
 
     public BaseSteps() {
         this.scenarioContext = ScenarioContext.getInstance();
