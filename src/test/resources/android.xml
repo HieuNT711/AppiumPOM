@@ -7,7 +7,7 @@
         <parameter name="deviceName" value="Xiaomi 11T"/>
         <parameter name="deviceIndex" value="device1"/>
         <parameter name="module" value="transfer"/>
-<!--        <parameter name="app" value="D:\AppiumCode\AppiumPOM\src\test\resources\data\crosselling_mic.apk"/>-->
+        <parameter name="app" value="D:\AppiumCode\AppiumPOM\src\test\resources\data\crosselling_mic.apk"/>
         <classes>
             <class name="com.qa.runners.AndroidDebugRunner"/>
         </classes>
