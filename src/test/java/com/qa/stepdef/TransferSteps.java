@@ -14,7 +14,7 @@ public class TransferSteps extends PageInjection {
         this.scenarioContext = ScenarioContext.getInstance();
     }
 
-    @When("I transfer to {string} and amount {string} with Dotp {string}")
+    @When("I transfer to MB account {string} and amount {string} with Dotp {string}")
     public void clickChuyenTienBtn(String receiveNumber, String amount, String dotp) {
         homePage.clickChuyenTien_btn();
         typeTransferPage.clickSoTaiKhoan_btn();
