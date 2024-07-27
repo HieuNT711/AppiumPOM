@@ -113,7 +113,9 @@ public class BasePage {
     }
 
     public void click(MobileElement e) {
+        utils.log().info("waitForElementClickable " + e);
         waitForElementClickable(e);
+        utils.log().info("click " + e);
         e.click();
     }
 
@@ -129,6 +131,7 @@ public class BasePage {
     }
 
     public void sendKeys(MobileElement e, String txt) {
+        utils.log().info("waitForVisibility " + e);
         waitForVisibility(e);
         if (new GlobalParams().getPlatformName().equalsIgnoreCase("iOS")) {
             e.sendKeys(Keys.DELETE);
@@ -142,6 +145,7 @@ public class BasePage {
             e.sendKeys(Keys.DELETE);
             e.sendKeys(Keys.DELETE);
         } else e.clear();
+        utils.log().info("sendKeys " + e);
         e.sendKeys(txt);
     }
 

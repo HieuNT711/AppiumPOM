@@ -29,7 +29,7 @@ public class InquiryPage extends BasePage {
     @AndroidFindBy(
             xpath =
                     "//android.view.View[@content-desc=\"Chuyển"
-                            + " đến\"]/following-sibling::android.view.View[1]//android.widget.EditText")
+                        + " đến\"]/following-sibling::android.view.View[1]//android.widget.EditText")
     private MobileElement SoTaiKhoan_edit;
 
     @iOSXCUITFindBy(accessibility = "shop now right arrow")

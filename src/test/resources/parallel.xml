@@ -9,6 +9,7 @@
         <parameter name="chromeDriverPort" value="11000"/>
         <parameter name="deviceIndex" value="device1"/>
         <parameter name="module" value="transfer"/>
+        <parameter name="app" value="D:\AppiumCode\AppiumPOM\src\test\resources\data\crosselling_mic.apk"/>
         <classes>
             <class name="com.qa.runners.AndroidDebugRunner"/>
         </classes>
@@ -22,21 +23,22 @@
         <parameter name="chromeDriverPort" value="11000"/>
         <parameter name="deviceIndex" value="device2"/>
         <parameter name="module" value="transfer"/>
+        <parameter name="app" value="D:\AppiumCode\AppiumPOM\src\test\resources\data\crosselling_mic.apk"/>
         <classes>
             <class name="com.qa.runners.AndroidDebugRunner2"/>
         </classes>
     </test>
 
-<!--    <test name="Run with platform iOS">-->
-<!--        <parameter name="platformName" value="iOS"/>-->
-<!--        <parameter name="udid" value="88b47a52c63057df11014d4ef4b0b44814220e8a"/>-->
-<!--        <parameter name="deviceName" value="iPhone X"/>-->
-<!--        <parameter name="wdaLocalPort" value="10001"/>-->
-<!--        <parameter name="webkitDebugProxyPort" value="11001"/>-->
-<!--        <classes>-->
-<!--            <class name="com.qa.runners.IOSRunnerTest"/>-->
-<!--        </classes>-->
-<!--    </test>-->
+    <!--    <test name="Run with platform iOS">-->
+    <!--        <parameter name="platformName" value="iOS"/>-->
+    <!--        <parameter name="udid" value="88b47a52c63057df11014d4ef4b0b44814220e8a"/>-->
+    <!--        <parameter name="deviceName" value="iPhone X"/>-->
+    <!--        <parameter name="wdaLocalPort" value="10001"/>-->
+    <!--        <parameter name="webkitDebugProxyPort" value="11001"/>-->
+    <!--        <classes>-->
+    <!--            <class name="com.qa.runners.IOSRunnerTest"/>-->
+    <!--        </classes>-->
+    <!--    </test>-->
 </suite> <!-- Suite -->
 
 
