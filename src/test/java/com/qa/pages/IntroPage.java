@@ -17,38 +17,38 @@ public class IntroPage extends BasePage {
 
     @iOSXCUITFindBy(accessibility = "shop now right arrow")
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Tài khoản khác\"]")
-    private MobileElement TaiKhoanKhac_btn;
+    private MobileElement TaiKhoanKhac_view;
 
     @iOSXCUITFindBy(accessibility = "shop now right arrow")
     @AndroidFindBy(
             xpath =
                     "//android.view.View[@content-desc=\"Chào mừng bạn\n"
                             + "đến với MB Bank\"]/following-sibling::android.widget.EditText[1]")
-    private MobileElement TenDangNhap_input;
+    private MobileElement TenDangNhap_edit;
 
     @AndroidFindBy(
             xpath =
                     "//android.view.View[@content-desc=\"Chào mừng bạn\n"
                             + "đến với MB Bank\"]/following-sibling::android.widget.EditText[2]")
-    private MobileElement MatKhau_input;
+    private MobileElement MatKhau_edit;
 
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Đăng nhập\"]")
-    private MobileElement DangNhap_btn;
+    private MobileElement DangNhap_view;
 
     @AndroidFindBy(xpath = "//android.view.View[@content-desc='Chào mừng bạn\\nđến với MBBank']")
-    private MobileElement title_txt;
+    private MobileElement title_view;
 
     public void verifyTaiKhoanKhac_btnIsPresent() {
-        if (waitForElementDisplayed(TaiKhoanKhac_btn)) {
-            click(TaiKhoanKhac_btn);
+        if (waitForElementDisplayed(TaiKhoanKhac_view)) {
+            click(TaiKhoanKhac_view);
         }
     }
 
     public void loginApp() {
-        click(TenDangNhap_input);
-        sendKeys(TenDangNhap_input, RunnerBase.userName);
-        click(MatKhau_input);
-        sendKeys(MatKhau_input, RunnerBase.passWord);
-        click(DangNhap_btn);
+        click(TenDangNhap_edit);
+        sendKeys(TenDangNhap_edit, RunnerBase.userName);
+        click(MatKhau_edit);
+        sendKeys(MatKhau_edit, RunnerBase.passWord);
+        click(DangNhap_view);
     }
 }
