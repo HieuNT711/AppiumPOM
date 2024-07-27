@@ -24,7 +24,6 @@ public class DriverManager {
     public void initializeDriver() throws Exception {
         AppiumDriver driver = null;
         GlobalParams params = new GlobalParams();
-        //        PropertyManager props = new PropertyManager();
         if (driver == null) {
             try {
                 utils.log().info("initializing Appium driver");
@@ -35,8 +34,6 @@ public class DriverManager {
                                         new URL(
                                                 PropertiesManager.getEnvironmentSpecFromProperty(
                                                         "appiumURL")),
-                                        //                                        new
-                                        // ServerManager().getServer().getUrl(),
                                         new CapabilitiesManager().getCaps());
                         break;
                     case "iOS":
@@ -45,8 +42,6 @@ public class DriverManager {
                                         new URL(
                                                 PropertiesManager.getEnvironmentSpecFromProperty(
                                                         "appiumURL")),
-                                        //                                         new
-                                        // ServerManager().getServer().getUrl(),
                                         new CapabilitiesManager().getCaps());
                         break;
                 }
