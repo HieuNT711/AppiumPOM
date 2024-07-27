@@ -1,25 +1,17 @@
 package com.qa.stepdef;
 
-import com.qa.pages.PageInjection;
+import com.qa.pages.BasePage;
 import com.utils.TestUtils;
 
 import context.ScenarioContext;
 
-import io.cucumber.java.en.When;
+public class BaseSteps extends BasePage {
 
-public class BaseSteps extends PageInjection {
-    //    IntroPage introPage = new IntroPage();
     protected final ScenarioContext scenarioContext;
     TestUtils utils = new TestUtils();
 
     public BaseSteps() {
         this.scenarioContext = ScenarioContext.getInstance();
-    }
-
-    @When("I login in MB bank")
-    public void loginAPI() {
-        introPage.verifyTaiKhoanKhac_btnIsPresent();
-        introPage.loginApp();
     }
 
     //    @When("Back to {string} page")

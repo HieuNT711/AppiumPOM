@@ -6,7 +6,6 @@ public class GlobalParams {
     private static final ThreadLocal<String> deviceName = new ThreadLocal<String>();
     private static final ThreadLocal<String> systemPort = new ThreadLocal<String>();
     private static final ThreadLocal<String> wdaLocalPort = new ThreadLocal<String>();
-    private static final ThreadLocal<String> app = new ThreadLocal<String>();
 
     public void setPlatformName(String platformName1) {
         platformName.set(platformName1);
@@ -46,13 +45,5 @@ public class GlobalParams {
 
     public void setWdaLocalPort(String wdaLocalPort2) {
         wdaLocalPort.set(wdaLocalPort2);
-    }
-
-    public String getApp() {
-        return app.get();
-    }
-
-    public void setApp(String app1) {
-        app.set(app1);
     }
 }

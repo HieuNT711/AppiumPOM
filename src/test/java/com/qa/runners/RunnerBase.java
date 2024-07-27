@@ -36,7 +36,6 @@ public class RunnerBase {
         "chromeDriverPort",
         "deviceIndex",
         "module",
-        "app",
         "wdaLocalPort",
         "webkitDebugProxyPort",
     })
@@ -49,7 +48,6 @@ public class RunnerBase {
             @Optional("Android") String chromeDriverPort,
             @Optional String deviceIndex,
             @Optional String module,
-            @Optional String app,
             @Optional("iOS") String wdaLocalPort,
             @Optional("iOS") String webkitDebugProxyPort)
             throws Exception {
@@ -60,7 +58,6 @@ public class RunnerBase {
         params.setPlatformName(platformName);
         params.setUDID(udid);
         params.setDeviceName(deviceName);
-        params.setApp(app);
 
         switch (platformName) {
             case "Android":

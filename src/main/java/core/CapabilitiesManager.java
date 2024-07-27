@@ -20,7 +20,6 @@ public class CapabilitiesManager {
             caps.setCapability(MobileCapabilityType.PLATFORM_NAME, params.getPlatformName());
             caps.setCapability(MobileCapabilityType.UDID, params.getUDID());
             caps.setCapability(MobileCapabilityType.DEVICE_NAME, params.getDeviceName());
-            caps.setCapability(MobileCapabilityType.APP, params.getApp());
 
             switch (params.getPlatformName()) {
                 case "Android":
@@ -34,6 +33,10 @@ public class CapabilitiesManager {
                     caps.setCapability(
                             "appActivity",
                             PropertiesManager.getEnvironmentSpecFromProperty("androidAppActivity"));
+                    //                    caps.setCapability("systemPort", params.getSystemPort());
+                    //                    caps.setCapability("app",
+                    // "D:\\AppiumCode\\app-autotest\\src\\test\\resources\\data\\Banggood - Online
+                    // Shopping_7.51.0_Apkpure.apk");
                     caps.setCapability("noReset", "true");
                     caps.setCapability("fullReset", "false");
                     break;
