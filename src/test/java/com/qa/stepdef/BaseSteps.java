@@ -13,7 +13,7 @@ public class BaseSteps extends PageInjection {
         this.scenarioContext = ScenarioContext.getInstance();
     }
 
-    @When("I login in MB bank")
+    @When("I login MB bank")
     public void loginAPI() {
         introPage.verifyTaiKhoanKhac_btnIsPresent();
         introPage.loginApp();
