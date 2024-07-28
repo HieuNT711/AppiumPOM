@@ -12,4 +12,7 @@ public class PageInjection {
     public TypeTransferPage typeTransferPage = new TypeTransferPage();
     public InquiryPage inquiryPage = new InquiryPage();
     public VerifyPage verifyPage = new VerifyPage();
+    public ProfilePage profilePage = new ProfilePage();
+    public SettingPage settingPage = new SettingPage();
+    public DigitalOTPPage digitalOTPpage = new DigitalOTPPage();
 }

@@ -6,10 +6,10 @@ import context.ScenarioContext;
 
 import io.cucumber.java.en.When;
 
-public class BaseSteps extends PageInjection {
+public class CommonSteps extends PageInjection {
     protected final ScenarioContext scenarioContext;
 
-    public BaseSteps() {
+    public CommonSteps() {
         this.scenarioContext = ScenarioContext.getInstance();
     }
 

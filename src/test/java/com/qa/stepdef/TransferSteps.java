@@ -4,6 +4,8 @@ import com.qa.pages.PageInjection;
 
 import context.ScenarioContext;
 
+import enums.GlobalVariables;
+
 import io.cucumber.java.en.When;
 
 public class TransferSteps extends PageInjection {
@@ -16,12 +18,11 @@ public class TransferSteps extends PageInjection {
 
     @When(
             "I transfer to {string} bank with receive account {string} and amount {string} with"
-                    + " Dotp {string}")
-    public void transferMoneyToAccount(
-            String bankCode, String receiveNumber, String amount, String dotp) {
+                    + " DOTP")
+    public void transferMoneyToAccount(String bankCode, String receiveNumber, String amount) {
         goToInquiryScreen();
         inputMoneyTransfer(bankCode, receiveNumber, amount);
-        confirmTransferMoneyDOTP(dotp);
+        confirmTransferMoneyDOTP();
     }
 
     @When("I go to Inquiry Screen")
@@ -35,8 +36,24 @@ public class TransferSteps extends PageInjection {
         inquiryPage.nhapThongTinChuyenTien(bankCode, receiveNumber, amount);
     }
 
-    @When("I confirm transfer money by DOTP {string}")
-    public void confirmTransferMoneyDOTP(String dotp) {
-        verifyPage.xacNhanChuyenTienDOTP(dotp);
+    @When("I confirm transfer money by DOTP")
+    public void confirmTransferMoneyDOTP() {
+        verifyPage.xacNhanChuyenTienDOTP(GlobalVariables.DOTP);
+    }
+
+    @When("I go to Digital OTP screen")
+    public void goToDOTPScreen() {
+        homePage.clickProfile();
+        profilePage.clickCaiDat_view();
+        settingPage.clickThietLapDigitalTP_view();
+    }
+
+    @When("I register DOTP")
+    public void dangKiDOTP() {
+        if (digitalOTPpage.checkDOTP()) {
+            digitalOTPpage.nhapSMS();
+            digitalOTPpage.dangKiDOTP();
+        }
+        utils.log().info("Đã đăng kí DOTP");
     }
 }
