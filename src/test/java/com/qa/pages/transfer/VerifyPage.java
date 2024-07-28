@@ -23,7 +23,8 @@ public class VerifyPage extends BasePage {
     @AndroidFindBy(accessibility = "Xác thực")
     private MobileElement XacThuc_view;
 
-    public void xacNhanChuyenTien(String dotp) {
+    public void xacNhanChuyenTienDOTP(String dotp) {
+        waitForElementDisplayed(XacNhan_view);
         click(XacNhan_view);
         click(Dotp_edit);
         sendKeys(Dotp_edit, dotp);

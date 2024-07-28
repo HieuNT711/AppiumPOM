@@ -14,11 +14,29 @@ public class TransferSteps extends PageInjection {
         this.scenarioContext = ScenarioContext.getInstance();
     }
 
-    @When("I transfer to MB account {string} and amount {string} with Dotp {string}")
-    public void clickChuyenTienBtn(String receiveNumber, String amount, String dotp) {
+    @When(
+            "I transfer to {string} bank with receive account {string} and amount {string} with"
+                    + " Dotp {string}")
+    public void transferMoneyToAccount(
+            String bankCode, String receiveNumber, String amount, String dotp) {
+        goToInquiryScreen();
+        inputMoneyTransfer(bankCode, receiveNumber, amount);
+        confirmTransferMoneyDOTP(dotp);
+    }
+
+    @When("I go to Inquiry Screen")
+    public void goToInquiryScreen() {
         homePage.clickChuyenTien_btn();
         typeTransferPage.clickSoTaiKhoan_btn();
-        inquiryPage.nhapThongTinChuyenTien(receiveNumber, amount);
-        verifyPage.xacNhanChuyenTien(dotp);
+    }
+
+    @When("I input transfer money Info bankCode {string} receiveNumber {string}  amout {string}")
+    public void inputMoneyTransfer(String bankCode, String receiveNumber, String amount) {
+        inquiryPage.nhapThongTinChuyenTien(bankCode, receiveNumber, amount);
+    }
+
+    @When("I confirm transfer money by DOTP {string}")
+    public void confirmTransferMoneyDOTP(String dotp) {
+        verifyPage.xacNhanChuyenTienDOTP(dotp);
     }
 }

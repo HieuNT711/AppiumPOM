@@ -61,6 +61,7 @@ public class BasePage {
     }
 
     public void waitForVisibility(MobileElement e) {
+        utils.log().info("waitForVisibility: " + e);
         WebDriverWait wait = new WebDriverWait(driver, TestUtils.WAIT);
         wait.until(ExpectedConditions.visibilityOf(e));
     }
@@ -71,6 +72,7 @@ public class BasePage {
     }
 
     public boolean waitForElementDisplayed(MobileElement e) {
+        utils.log().info("waitForElementDisplayed: " + e);
         WebDriverWait wait = new WebDriverWait(driver, 10);
         try {
             wait.until(ExpectedConditions.visibilityOf(e));
@@ -98,6 +100,7 @@ public class BasePage {
     }
 
     public void waitForVisibility(By e) {
+        utils.log().info("waitForVisibility: " + e);
         WebDriverWait wait = new WebDriverWait(driver, TestUtils.WAIT);
         wait.until(visibilityOfElementLocated(e));
     }
@@ -107,21 +110,20 @@ public class BasePage {
         wait.until(visibilityOfElementLocated(e));
     }
 
+    public void waitClickableIsTrue(MobileElement mobileElement, long timeOut) {
+        utils.log().info("waitClickableIsTrue: " + mobileElement);
+        WebDriverWait wait = new WebDriverWait(driver, timeOut);
+        wait.until(driver -> mobileElement.getAttribute("clickable").equalsIgnoreCase("True"));
+    }
+
     public void clear(MobileElement e) {
         tryWaitElementClickable(e);
         e.clear();
     }
 
     public void click(MobileElement e) {
-        utils.log().info("waitForElementClickable " + e);
+        utils.log().info("click: " + e);
         waitForElementClickable(e);
-        utils.log().info("click " + e);
-        e.click();
-    }
-
-    public void click(MobileElement e, String msg) {
-        tryWaitElementClickable(e);
-        utils.log().info(msg);
         e.click();
     }
 
@@ -131,7 +133,7 @@ public class BasePage {
     }
 
     public void sendKeys(MobileElement e, String txt) {
-        utils.log().info("waitForVisibility " + e);
+        utils.log().info("waitForVisibility: " + e);
         waitForVisibility(e);
         if (new GlobalParams().getPlatformName().equalsIgnoreCase("iOS")) {
             e.sendKeys(Keys.DELETE);
@@ -145,7 +147,7 @@ public class BasePage {
             e.sendKeys(Keys.DELETE);
             e.sendKeys(Keys.DELETE);
         } else e.clear();
-        utils.log().info("sendKeys " + e);
+        utils.log().info("sendKeys: " + e);
         e.sendKeys(txt);
     }
 
@@ -374,6 +376,7 @@ public class BasePage {
         WebDriverWait wait = new WebDriverWait(driver, TestUtils.WAIT);
         wait.until(ExpectedConditions.elementToBeClickable(locator));
     }
+
     //
     //    public void waitAllElementDisplay(By xpath) {
     //        WebDriverWait wait = new WebDriverWait(driver, 100);

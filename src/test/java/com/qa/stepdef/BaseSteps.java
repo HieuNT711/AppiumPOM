@@ -1,7 +1,6 @@
 package com.qa.stepdef;
 
 import com.qa.pages.PageInjection;
-import com.utils.TestUtils;
 
 import context.ScenarioContext;
 
@@ -9,7 +8,6 @@ import io.cucumber.java.en.When;
 
 public class BaseSteps extends PageInjection {
     protected final ScenarioContext scenarioContext;
-    TestUtils utils = new TestUtils();
 
     public BaseSteps() {
         this.scenarioContext = ScenarioContext.getInstance();

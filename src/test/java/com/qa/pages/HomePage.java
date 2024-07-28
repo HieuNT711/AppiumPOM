@@ -18,7 +18,17 @@ public class HomePage extends BasePage {
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Chuyển tiền\"]")
     private MobileElement ChuyenTien_view;
 
+    @iOSXCUITFindBy(accessibility = "shop now right arrow")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Bỏ qua\"]")
+    private MobileElement Boqua_view;
+
     public void clickChuyenTien_btn() {
+        //        if (waitForElementDisplayed(Boqua_view)) {
+        //            click(Boqua_view);
+        //            if (waitForElementDisplayed(Boqua_view)) {
+        //                click(Boqua_view);
+        //            }
+        //        }
         click(ChuyenTien_view);
     }
 }

@@ -22,8 +22,30 @@ public class InquiryPage extends BasePage {
     private MobileElement NganHang_view;
 
     @iOSXCUITFindBy(accessibility = "shop now right arrow")
+    @AndroidFindBy(
+            xpath =
+                    "//android.widget.ImageView[@content-desc=\"MBBank (MB)\n"
+                            + "Ngân hàng TMCP Quân"
+                            + " đội\"]/../../preceding-sibling::android.widget.EditText")
+    private MobileElement ChonNganHang_edit;
+
+    @iOSXCUITFindBy(accessibility = "shop now right arrow")
     @AndroidFindBy(accessibility = "MBBank (MB)\n" + "Ngân hàng TMCP Quân đội")
     private MobileElement MBBank_view;
+
+    @iOSXCUITFindBy(accessibility = "shop now right arrow")
+    @AndroidFindBy(
+            xpath =
+                    "//android.widget.ImageView[@content-desc=\"DongA Bank (DAB)\n"
+                            + "Ngân hàng TMCP Đông Á\"]")
+    private MobileElement DABBank_view;
+
+    @iOSXCUITFindBy(accessibility = "shop now right arrow")
+    @AndroidFindBy(
+            xpath =
+                    "//android.widget.ImageView[@content-desc=\"Techcombank (TCB)\n"
+                            + "Ngân hàng TMCP Kỹ Thương Việt Nam\"]")
+    private MobileElement TCBBank_view;
 
     @iOSXCUITFindBy(accessibility = "shop now right arrow")
     @AndroidFindBy(
@@ -64,16 +86,49 @@ public class InquiryPage extends BasePage {
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Tiếp tục\"]")
     private MobileElement TiepTuc_view;
 
+    @iOSXCUITFindBy(accessibility = "shop now right arrow")
+    @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Đã hiểu\"]")
+    private MobileElement DaHieu_view; // cảnh báo lừa đảo A05 popup
+
     @SneakyThrows
-    public void nhapThongTinChuyenTien(String receiveNumber, String amount) {
+    public void nhapThongTinChuyenTien(String bankCode, String receiveNumber, String amount) {
+        chonNganHangThuHuong(bankCode);
+        nhapThongTinNguoiNhan(receiveNumber);
+        nhapSoTien(amount);
+        click(TiepTuc_view);
+
+        if (waitForElementDisplayed(DaHieu_view)) { // xử lý exception (case hiển thị popup A05)
+            click(DaHieu_view);
+            click(TiepTuc_view);
+        }
+    }
+
+    public void chonNganHangThuHuong(String bankCode) {
         click(NganHang_view);
-        click(MBBank_view);
+        click(ChonNganHang_edit);
+        sendKeys(ChonNganHang_edit, bankCode);
+        switch (bankCode) {
+            case "MB":
+                click(MBBank_view);
+                break;
+            case "DAB":
+                click(DABBank_view);
+                break;
+            case "TCB":
+                click(TCBBank_view);
+            default:
+        }
+    }
+
+    public void nhapThongTinNguoiNhan(String receiveNumber) {
         click(SoTaiKhoan_edit);
         sendKeys(SoTaiKhoan_edit, receiveNumber);
         click(ChuyenTienToiSoTaiKhoan_view);
-        Thread.sleep(3000);
+    }
+
+    public void nhapSoTien(String amount) {
         click(Amount_view);
         sendKeys(Amount_edit, amount);
-        click(TiepTuc_view);
+        waitClickableIsTrue(TiepTuc_view, 3);
     }
 }
