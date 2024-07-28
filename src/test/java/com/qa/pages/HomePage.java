@@ -43,7 +43,7 @@ public class HomePage extends BasePage {
                             + " chủ\"]/preceding-sibling::android.view.View[2]")
     private MobileElement Search_view;
 
-    public void clickChuyenTien_btn() {
+    public void clickChuyenTien_view() {
         //        if (waitForElementDisplayed(Boqua_view)) {
         //            click(Boqua_view);
         //            if (waitForElementDisplayed(Boqua_view)) {

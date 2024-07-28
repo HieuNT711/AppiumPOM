@@ -27,8 +27,8 @@ public class TransferSteps extends PageInjection {
 
     @When("I go to Inquiry Screen")
     public void goToInquiryScreen() {
-        homePage.clickChuyenTien_btn();
-        typeTransferPage.clickSoTaiKhoan_btn();
+        homePage.clickChuyenTien_view();
+        typeTransferPage.SoTaiKhoan_view();
     }
 
     @When("I input transfer money Info bankCode {string} receiveNumber {string}  amout {string}")

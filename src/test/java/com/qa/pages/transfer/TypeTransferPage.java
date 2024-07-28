@@ -24,7 +24,7 @@ public class TypeTransferPage extends BasePage {
     @AndroidFindBy(xpath = "//android.view.View[@content-desc=\"Đối tác MB\"]")
     private MobileElement DoiTacMB_view;
 
-    public void clickSoTaiKhoan_btn() {
+    public void SoTaiKhoan_view() {
         click(SoTaiKhoan_view);
     }
 }
