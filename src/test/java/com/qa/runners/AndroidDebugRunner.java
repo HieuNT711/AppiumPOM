@@ -12,7 +12,7 @@ import io.cucumber.testng.CucumberOptions;
             "html:target/Android/cucumber",
             "summary",
             "me.jvt.cucumber.report.PrettyReports:report/Android",
-            //                "com.epam.reportportal.cucumber.ScenarioReporter"
+            "com.epam.reportportal.cucumber.ScenarioReporter"
         },
         //        features = {"src/test/resources/features/android"},
         features = {"src/test/resources/features/android/Debug.feature"},
