@@ -15,8 +15,8 @@ import io.cucumber.testng.CucumberOptions;
         },
         features = {"src/test/resources/features/android/Debug.feature"},
         glue = {"com.qa.stepdef"},
-        dryRun = false,
-        monochrome = true
+        dryRun = false
+        // monochrome = true
         //        tags = "@iOS and not @ignore"
         )
 public class IOSRunnerTest extends RunnerBase {}
