@@ -78,7 +78,7 @@ public class RunnerBase {
                         module + "." + deviceIndex + ".username1");
         passWord =
                 PropertiesManager.getEnvironmentSpecFromProperty(
-                        module + "." + deviceIndex + ".password1");
+                        module + "." + deviceIndex + ".password");
 
         //        new ServerManager().startServer();
         new DriverManager().initializeDriver();
