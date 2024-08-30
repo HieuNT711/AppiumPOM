@@ -75,7 +75,7 @@ public class RunnerBase {
 
         userName =
                 PropertiesManager.getEnvironmentSpecFromProperty(
-                        module + "." + deviceIndex + ".username1");
+                        module + "." + deviceIndex + ".username");
         passWord =
                 PropertiesManager.getEnvironmentSpecFromProperty(
                         module + "." + deviceIndex + ".password");
