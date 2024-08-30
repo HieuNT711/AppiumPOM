@@ -18,7 +18,7 @@ import io.cucumber.testng.CucumberOptions;
         features = {"src/test/resources/features/android/Debug.feature"},
         glue = {"com.qa.stepdef"},
         dryRun = false,
-        monochrome = true
+        // monochrome = true
                tags = "@Android and not @ignore"
         )
 public class AndroidDebugRunner extends RunnerBase {}
