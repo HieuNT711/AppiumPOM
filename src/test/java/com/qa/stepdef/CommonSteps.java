@@ -1,7 +1,6 @@
 package com.qa.stepdef;
 
 import com.qa.pages.PageInjection;
-
 import context.ScenarioContext;
 
 import io.cucumber.java.en.When;
@@ -15,8 +14,8 @@ public class CommonSteps extends PageInjection {
 
     @When("I login MB bank")
     public void loginAPI() {
-        introPage.verifyTaiKhoanKhac_btnIsPresent();
-        introPage.loginApp();
+//        introPage.verifyTaiKhoanKhac_btnIsPresent();
+//        introPage.loginApp();
     }
 
     //    @When("Back to {string} page")

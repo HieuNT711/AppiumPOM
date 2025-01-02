@@ -4,20 +4,17 @@ import com.epam.reportportal.cucumber.ScenarioReporter;
 import com.epam.reportportal.service.ReportPortal;
 import com.epam.ta.reportportal.ws.model.StartTestItemRQ;
 import com.google.api.client.util.ArrayMap;
-
 import io.cucumber.core.gherkin.DataTableArgument;
 import io.cucumber.plugin.event.PickleStepTestStep;
 import io.cucumber.plugin.event.Step;
 import io.cucumber.plugin.event.TestCase;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.annotation.Nonnull;
 import java.io.File;
 import java.net.URI;
 import java.util.*;
-
-import javax.annotation.Nonnull;
 
 public class ReportPortalLogging extends ScenarioReporter {
 

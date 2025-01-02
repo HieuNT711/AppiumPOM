@@ -60,7 +60,7 @@ public class Hooks {
         //        new VideoManager().stopRecording(scenario.getName());
         //        scenarioContext.clearAllDataInThreadContext();
         //        new DriverManager().getDriver().closeApp();
-        new DriverManager().getDriver().launchApp();
+        new DriverManager().getDriver().quit();
         //        Thread.sleep(5000);
     }
 }

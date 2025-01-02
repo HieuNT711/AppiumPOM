@@ -5,9 +5,11 @@ import com.utils.TestUtils;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import org.openqa.selenium.remote.http.ClientConfig;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.Duration;
 
 public class DriverManager {
     private static final ThreadLocal<AppiumDriver> driver = new ThreadLocal<>();
@@ -30,10 +32,11 @@ public class DriverManager {
                 switch (params.getPlatformName()) {
                     case "Android":
                         driver =
-                                new AndroidDriver<>(
-                                        new URL(
-                                                PropertiesManager.getEnvironmentSpecFromProperty(
-                                                        "appiumURL")),
+                                new AndroidDriver(
+                                        ClientConfig.defaultConfig()
+                                                .baseUrl(new URL(PropertiesManager.getEnvironmentSpecFromProperty(
+                                                        "appiumURL"))) // Địa chỉ Appium Server
+                                                .readTimeout(Duration.ofSeconds(60)),
                                         new CapabilitiesManager().getCaps());
                         break;
                     case "iOS":

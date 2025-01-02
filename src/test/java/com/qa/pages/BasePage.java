@@ -1,39 +1,16 @@
 package com.qa.pages;
 
-import static io.appium.java_client.touch.TapOptions.tapOptions;
-import static io.appium.java_client.touch.WaitOptions.waitOptions;
-import static io.appium.java_client.touch.offset.ElementOption.element;
-import static io.appium.java_client.touch.offset.PointOption.point;
-
-import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
-
-import static java.time.Duration.ofMillis;
-import static java.time.Duration.ofSeconds;
-
-import com.utils.RandomUtil;
 import com.utils.TestUtils;
-
 import core.DriverManager;
-import core.GlobalParams;
-
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-
-import org.openqa.selenium.*;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 public class BasePage {
-    private final AppiumDriver<?> driver;
+    private final AppiumDriver driver;
     TestUtils utils = new TestUtils();
 
     protected static final String NOT_DISPLAY_MESSAGE = "Text [%s] is not display!";
@@ -56,133 +33,133 @@ public class BasePage {
         return (IOSDriver) driver;
     }
 
-    public WebDriverWait createExplicitWait(long timeout) {
-        return new WebDriverWait(this.driver, timeout);
-    }
+//    public WebDriverWait createExplicitWait(long timeout) {
+//        return new WebDriverWait(this.driver, timeout);
+//    }
 
-    public void waitForVisibility(MobileElement e) {
-        utils.log().info("waitForVisibility: " + e);
-        WebDriverWait wait = new WebDriverWait(driver, TestUtils.WAIT);
-        wait.until(ExpectedConditions.visibilityOf(e));
-    }
-
-    public void waitForVisibility(MobileElement e, long timeOUt) {
-        WebDriverWait wait = new WebDriverWait(driver, timeOUt);
-        wait.until(ExpectedConditions.visibilityOf(e));
-    }
-
-    public boolean waitForElementDisplayed(MobileElement e) {
-        utils.log().info("waitForElementDisplayed: " + e);
-        WebDriverWait wait = new WebDriverWait(driver, 10);
-        try {
-            wait.until(ExpectedConditions.visibilityOf(e));
-        } catch (TimeoutException | NoSuchElementException ex) {
-            return false;
-        }
-        return e.isDisplayed();
-    }
-
-    public boolean waitForElementDisplayed(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, 5);
-        try {
-            MobileElement element =
-                    (MobileElement)
-                            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-            return element.isDisplayed();
-        } catch (TimeoutException | NoSuchElementException ex) {
-            return false;
-        }
-    }
-
-    public void waitForAllElementPresence(By by) {
-        WebDriverWait wait = new WebDriverWait(driver, TestUtils.WAIT);
-        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
-    }
-
-    public void waitForVisibility(By e) {
-        utils.log().info("waitForVisibility: " + e);
-        WebDriverWait wait = new WebDriverWait(driver, TestUtils.WAIT);
-        wait.until(visibilityOfElementLocated(e));
-    }
-
-    public void waitForVisibility(By e, long timeOut) {
-        WebDriverWait wait = new WebDriverWait(driver, timeOut);
-        wait.until(visibilityOfElementLocated(e));
-    }
-
-    public void waitClickableIsTrue(MobileElement mobileElement, long timeOut) {
-        utils.log().info("waitClickableIsTrue: " + mobileElement);
-        WebDriverWait wait = new WebDriverWait(driver, timeOut);
-        wait.until(driver -> mobileElement.getAttribute("clickable").equalsIgnoreCase("True"));
-    }
-
-    public void clear(MobileElement e) {
-        tryWaitElementClickable(e);
-        e.clear();
-    }
-
-    public void click(MobileElement e) {
-        utils.log().info("click: " + e);
-        waitForElementClickable(e);
-        e.click();
-    }
-
-    public void click(By e) {
-        waitForVisibility(e);
-        driver.findElement(e).click();
-    }
-
-    public void sendKeys(MobileElement e, String txt) {
-        utils.log().info("waitForVisibility: " + e);
-        waitForVisibility(e);
-        if (new GlobalParams().getPlatformName().equalsIgnoreCase("iOS")) {
-            e.sendKeys(Keys.DELETE);
-            e.sendKeys(Keys.DELETE);
-            e.sendKeys(Keys.DELETE);
-            e.sendKeys(Keys.DELETE);
-            e.sendKeys(Keys.DELETE);
-            e.sendKeys(Keys.DELETE);
-            e.sendKeys(Keys.DELETE);
-            e.sendKeys(Keys.DELETE);
-            e.sendKeys(Keys.DELETE);
-            e.sendKeys(Keys.DELETE);
-        } else e.clear();
-        utils.log().info("sendKeys: " + e);
-        e.sendKeys(txt);
-    }
-
-    public void sendKeys(MobileElement e, String txt, String msg) {
-        waitForElementClickable(e);
-        utils.log().info(msg);
-        e.sendKeys(txt);
-    }
-
-    public String getAttribute(MobileElement e, String attribute) {
-        waitForVisibility(e);
-        return e.getAttribute(attribute);
-    }
-
-    public String getAttribute(By e, String attribute) {
-        waitForVisibility(e);
-        return driver.findElement(e).getAttribute(attribute);
-    }
-
-    public boolean verifyButtonClickable(MobileElement element) {
-        try {
-            waitForElementClickable(element);
-            return true;
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    public void closeApp() {
-        driver.closeApp();
-    }
-
-    public void launchApp() {
-        driver.launchApp();
-    }
+//    public void waitForVisibility(MobileElement e) {
+//        utils.log().info("waitForVisibility: " + e);
+//        WebDriverWait wait = new WebDriverWait(driver, TestUtils.WAIT);
+//        wait.until(ExpectedConditions.visibilityOf(e));
+//    }
+//
+//    public void waitForVisibility(MobileElement e, long timeOUt) {
+//        WebDriverWait wait = new WebDriverWait(driver, timeOUt);
+//        wait.until(ExpectedConditions.visibilityOf(e));
+//    }
+//
+//    public boolean waitForElementDisplayed(MobileElement e) {
+//        utils.log().info("waitForElementDisplayed: " + e);
+//        WebDriverWait wait = new WebDriverWait(driver, 10);
+//        try {
+//            wait.until(ExpectedConditions.visibilityOf(e));
+//        } catch (TimeoutException | NoSuchElementException ex) {
+//            return false;
+//        }
+//        return e.isDisplayed();
+//    }
+//
+//    public boolean waitForElementDisplayed(By locator) {
+//        WebDriverWait wait = new WebDriverWait(driver, 5);
+//        try {
+//            MobileElement element =
+//                    (MobileElement)
+//                            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+//            return element.isDisplayed();
+//        } catch (TimeoutException | NoSuchElementException ex) {
+//            return false;
+//        }
+//    }
+//
+//    public void waitForAllElementPresence(By by) {
+//        WebDriverWait wait = new WebDriverWait(driver, TestUtils.WAIT);
+//        wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
+//    }
+//
+//    public void waitForVisibility(By e) {
+//        utils.log().info("waitForVisibility: " + e);
+//        WebDriverWait wait = new WebDriverWait(driver, TestUtils.WAIT);
+//        wait.until(visibilityOfElementLocated(e));
+//    }
+//
+//    public void waitForVisibility(By e, long timeOut) {
+//        WebDriverWait wait = new WebDriverWait(driver, timeOut);
+//        wait.until(visibilityOfElementLocated(e));
+//    }
+//
+//    public void waitClickableIsTrue(MobileElement mobileElement, long timeOut) {
+//        utils.log().info("waitClickableIsTrue: " + mobileElement);
+//        WebDriverWait wait = new WebDriverWait(driver, timeOut);
+//        wait.until(driver -> mobileElement.getAttribute("clickable").equalsIgnoreCase("True"));
+//    }
+//
+//    public void clear(MobileElement e) {
+//        tryWaitElementClickable(e);
+//        e.clear();
+//    }
+//
+//    public void click(MobileElement e) {
+//        utils.log().info("click: " + e);
+//        waitForElementClickable(e);
+//        e.click();
+//    }
+//
+//    public void click(By e) {
+//        waitForVisibility(e);
+//        driver.findElement(e).click();
+//    }
+//
+//    public void sendKeys(MobileElement e, String txt) {
+//        utils.log().info("waitForVisibility: " + e);
+//        waitForVisibility(e);
+//        if (new GlobalParams().getPlatformName().equalsIgnoreCase("iOS")) {
+//            e.sendKeys(Keys.DELETE);
+//            e.sendKeys(Keys.DELETE);
+//            e.sendKeys(Keys.DELETE);
+//            e.sendKeys(Keys.DELETE);
+//            e.sendKeys(Keys.DELETE);
+//            e.sendKeys(Keys.DELETE);
+//            e.sendKeys(Keys.DELETE);
+//            e.sendKeys(Keys.DELETE);
+//            e.sendKeys(Keys.DELETE);
+//            e.sendKeys(Keys.DELETE);
+//        } else e.clear();
+//        utils.log().info("sendKeys: " + e);
+//        e.sendKeys(txt);
+//    }
+//
+//    public void sendKeys(MobileElement e, String txt, String msg) {
+//        waitForElementClickable(e);
+//        utils.log().info(msg);
+//        e.sendKeys(txt);
+//    }
+//
+//    public String getAttribute(MobileElement e, String attribute) {
+//        waitForVisibility(e);
+//        return e.getAttribute(attribute);
+//    }
+//
+//    public String getAttribute(By e, String attribute) {
+//        waitForVisibility(e);
+//        return driver.findElement(e).getAttribute(attribute);
+//    }
+//
+//    public boolean verifyButtonClickable(MobileElement element) {
+//        try {
+//            waitForElementClickable(element);
+//            return true;
+//        } catch (Exception e) {
+//            return false;
+//        }
+//    }
+//
+//    public void closeApp() {
+//        driver.closeApp();
+//    }
+//
+//    public void launchApp() {
+//        driver.launchApp();
+//    }
 
     //    @SneakyThrows
     //    public MobileElement scrollToElement(MobileElement element, String direction) {
@@ -274,108 +251,108 @@ public class BasePage {
     //        return element;
     //    }
 
-    public boolean find(final MobileElement element, int timeout) {
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, timeout);
-            return wait.until((ExpectedCondition<Boolean>) driver -> element.isDisplayed());
-        } catch (Exception e) {
-            return false;
-        }
-    }
+//    public boolean find(final MobileElement element, int timeout) {
+//        try {
+//            WebDriverWait wait = new WebDriverWait(driver, timeout);
+//            return wait.until((ExpectedCondition<Boolean>) driver -> element.isDisplayed());
+//        } catch (Exception e) {
+//            return false;
+//        }
+//    }
 
-    public boolean find(final By element, int timeout) {
-        try {
-            WebDriverWait wait = new WebDriverWait(driver, timeout);
-            return wait.until(
-                    new ExpectedCondition<Boolean>() {
-                        @Override
-                        public Boolean apply(WebDriver driver) {
-                            return driver.findElement(element).isDisplayed();
-                        }
-                    });
-        } catch (Exception e) {
-            return false;
-        }
-    }
-
-    public void swipe(int startX, int startY, int endX, int endY, int millis)
-            throws InterruptedException {
-        TouchAction t = new TouchAction(driver);
-        t.press(point(startX, startY))
-                .waitAction(waitOptions(ofMillis(millis)))
-                .moveTo(point(endX, endY))
-                .release()
-                .perform();
-    }
-
-    public MobileElement findElementContainText(List<MobileElement> mobileElements, String text) {
-        List<MobileElement> elements =
-                mobileElements.stream()
-                        .filter(mobileElement -> mobileElement.getText().contains(text))
-                        .collect(Collectors.toList());
-        System.out.println(elements.size());
-        if (elements.size() <= 1) return elements.get(0);
-        else return elements.get(RandomUtil.getRandomNumber(elements.size() - 1));
-    }
-
-    public void waitForInvisibility(MobileElement e) {
-        WebDriverWait wait = new WebDriverWait(driver, 30);
-        wait.until(ExpectedConditions.invisibilityOf(e));
-    }
-
-    // Tap to an element for 250 milliseconds
-    public void tapByElement(MobileElement e) {
-        new TouchAction(driver)
-                .tap(tapOptions().withElement(element(e)))
-                .waitAction(waitOptions(ofMillis(250)))
-                .perform();
-    }
-
-    public void tapByElementWithText(String text) {
-        MobileElement element =
-                (MobileElement)
-                        driver.findElement(
-                                By.xpath("//XCUIElementTypeStaticText[@name=\"" + text + "\"]"));
-        new TouchAction(driver)
-                .tap(tapOptions().withElement(element(element)))
-                .waitAction(waitOptions(ofMillis(250)))
-                .perform();
-    }
-
-    // Tap by coordinates
-    public void tapByCoordinates(int x, int y) {
-        if (new GlobalParams().getPlatformName().equalsIgnoreCase("iOS")) {
-            new TouchAction(driver)
-                    .tap(point(x, y))
-                    .waitAction(waitOptions(ofMillis(250)))
-                    .release()
-                    .perform();
-        } else {
-            new TouchAction(driver)
-                    .tap(point(x, y))
-                    .waitAction(waitOptions(ofMillis(250)))
-                    .perform();
-        }
-    }
-
-    // Press by element
-    public void pressByElement(MobileElement e, long seconds) {
-        new TouchAction(driver)
-                .press(element(e))
-                .waitAction(waitOptions(ofSeconds(seconds)))
-                .release()
-                .perform();
-    }
-
-    public void waitForElementClickable(MobileElement elm) {
-        WebDriverWait wait = new WebDriverWait(driver, 30);
-        wait.until(ExpectedConditions.elementToBeClickable(elm));
-    }
-
-    public void waitForElementClickable(By locator) {
-        WebDriverWait wait = new WebDriverWait(driver, TestUtils.WAIT);
-        wait.until(ExpectedConditions.elementToBeClickable(locator));
-    }
+//    public boolean find(final By element, int timeout) {
+//        try {
+//            WebDriverWait wait = new WebDriverWait(driver, timeout);
+//            return wait.until(
+//                    new ExpectedCondition<Boolean>() {
+//                        @Override
+//                        public Boolean apply(WebDriver driver) {
+//                            return driver.findElement(element).isDisplayed();
+//                        }
+//                    });
+//        } catch (Exception e) {
+//            return false;
+//        }
+//    }
+//
+//    public void swipe(int startX, int startY, int endX, int endY, int millis)
+//            throws InterruptedException {
+//        TouchAction t = new TouchAction(driver);
+//        t.press(point(startX, startY))
+//                .waitAction(waitOptions(ofMillis(millis)))
+//                .moveTo(point(endX, endY))
+//                .release()
+//                .perform();
+//    }
+//
+//    public MobileElement findElementContainText(List<MobileElement> mobileElements, String text) {
+//        List<MobileElement> elements =
+//                mobileElements.stream()
+//                        .filter(mobileElement -> mobileElement.getText().contains(text))
+//                        .collect(Collectors.toList());
+//        System.out.println(elements.size());
+//        if (elements.size() <= 1) return elements.get(0);
+//        else return elements.get(RandomUtil.getRandomNumber(elements.size() - 1));
+//    }
+//
+//    public void waitForInvisibility(MobileElement e) {
+//        WebDriverWait wait = new WebDriverWait(driver, 30);
+//        wait.until(ExpectedConditions.invisibilityOf(e));
+//    }
+//
+//    // Tap to an element for 250 milliseconds
+//    public void tapByElement(MobileElement e) {
+//        new TouchAction(driver)
+//                .tap(tapOptions().withElement(element(e)))
+//                .waitAction(waitOptions(ofMillis(250)))
+//                .perform();
+//    }
+//
+//    public void tapByElementWithText(String text) {
+//        MobileElement element =
+//                (MobileElement)
+//                        driver.findElement(
+//                                By.xpath("//XCUIElementTypeStaticText[@name=\"" + text + "\"]"));
+//        new TouchAction(driver)
+//                .tap(tapOptions().withElement(element(element)))
+//                .waitAction(waitOptions(ofMillis(250)))
+//                .perform();
+//    }
+//
+//    // Tap by coordinates
+//    public void tapByCoordinates(int x, int y) {
+//        if (new GlobalParams().getPlatformName().equalsIgnoreCase("iOS")) {
+//            new TouchAction(driver)
+//                    .tap(point(x, y))
+//                    .waitAction(waitOptions(ofMillis(250)))
+//                    .release()
+//                    .perform();
+//        } else {
+//            new TouchAction(driver)
+//                    .tap(point(x, y))
+//                    .waitAction(waitOptions(ofMillis(250)))
+//                    .perform();
+//        }
+//    }
+//
+//    // Press by element
+//    public void pressByElement(MobileElement e, long seconds) {
+//        new TouchAction(driver)
+//                .press(element(e))
+//                .waitAction(waitOptions(ofSeconds(seconds)))
+//                .release()
+//                .perform();
+//    }
+//
+//    public void waitForElementClickable(MobileElement elm) {
+//        WebDriverWait wait = new WebDriverWait(driver, 30);
+//        wait.until(ExpectedConditions.elementToBeClickable(elm));
+//    }
+//
+//    public void waitForElementClickable(By locator) {
+//        WebDriverWait wait = new WebDriverWait(driver, TestUtils.WAIT);
+//        wait.until(ExpectedConditions.elementToBeClickable(locator));
+//    }
 
     //
     //    public void waitAllElementDisplay(By xpath) {
@@ -481,26 +458,26 @@ public class BasePage {
     //        driver.navigate().back();
     //    }
     //
-    public void tryWaitElementClickable(MobileElement element) {
-        try {
-            waitForElementClickable(element);
-        } catch (NoSuchElementException | StaleElementReferenceException | TimeoutException e) {
-            waitForElementClickable(element);
-        }
-    }
-
-    public MobileElement findElementNotContainText(
-            List<MobileElement> mobileElements, String text) {
-        List<MobileElement> elementNotContains =
-                mobileElements.stream()
-                        .filter(
-                                mobileElement ->
-                                        !mobileElement.getText().contains(text)
-                                                && !mobileElement.getText().contains("G95 Apparel")
-                                                && !mobileElement.getText().contains("Berrylook"))
-                        .collect(Collectors.toList());
-        return elementNotContains.get(RandomUtil.getRandomNumber(elementNotContains.size() - 1));
-    }
+//    public void tryWaitElementClickable(MobileElement element) {
+//        try {
+//            waitForElementClickable(element);
+//        } catch (NoSuchElementException | StaleElementReferenceException | TimeoutException e) {
+//            waitForElementClickable(element);
+//        }
+//    }
+//
+//    public MobileElement findElementNotContainText(
+//            List<MobileElement> mobileElements, String text) {
+//        List<MobileElement> elementNotContains =
+//                mobileElements.stream()
+//                        .filter(
+//                                mobileElement ->
+//                                        !mobileElement.getText().contains(text)
+//                                                && !mobileElement.getText().contains("G95 Apparel")
+//                                                && !mobileElement.getText().contains("Berrylook"))
+//                        .collect(Collectors.toList());
+//        return elementNotContains.get(RandomUtil.getRandomNumber(elementNotContains.size() - 1));
+//    }
     //
     //    public MobileElement snackBar() {
     //        FluentWait<WebDriver> wait =

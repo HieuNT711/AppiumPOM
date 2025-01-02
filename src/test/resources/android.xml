@@ -3,11 +3,11 @@
 <suite name="Suite Parallel" parallel="tests">
     <test name="Run with platform Android 1">
         <parameter name="platformName" value="Android"/>
-        <parameter name="udid" value="R58N21SLEWY"/>
+        <parameter name="udid" value="0N14223I22102C92"/>
         <parameter name="deviceName" value="Xiaomi 11T"/>
         <parameter name="deviceIndex" value="device1"/>
         <parameter name="module" value="transfer"/>
-        <parameter name="app" value="D:\AppiumCode\AppiumPOM\src\test\resources\features\data\crosselling_mic.apk"/>
+        <parameter name="app" value="D:\Hieunt16\SourceCode\AppiumPOM\AppiumPOM\src\test\resources\features\data\starbucks.apk"/>
         <classes>
             <class name="com.qa.runners.AndroidDebugRunner"/>
         </classes>
