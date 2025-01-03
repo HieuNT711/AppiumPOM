@@ -1,16 +1,14 @@
 package com.qa.stepdef;
 
 import context.ScenarioContext;
-
 import core.DriverManager;
-
-import io.cucumber.java.*;
-
+import io.cucumber.java.After;
+import io.cucumber.java.Scenario;
 import lombok.SneakyThrows;
-
 import org.openqa.selenium.OutputType;
 
 import java.io.IOException;
+import java.time.Duration;
 
 public class Hooks {
 
@@ -60,6 +58,7 @@ public class Hooks {
         //        new VideoManager().stopRecording(scenario.getName());
         //        scenarioContext.clearAllDataInThreadContext();
         //        new DriverManager().getDriver().closeApp();
+        new DriverManager().getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         new DriverManager().getDriver().quit();
         //        Thread.sleep(5000);
     }

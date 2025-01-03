@@ -5,6 +5,9 @@ import core.DriverManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -13,6 +16,7 @@ import java.time.Duration;
 
 public class BasePage {
     protected final AppiumDriver driver;
+    private WebDriverWait wait;
     TestUtils utils = new TestUtils();
 
     protected static final String NOT_DISPLAY_MESSAGE = "Text [%s] is not display!";
@@ -20,10 +24,11 @@ public class BasePage {
 
     public BasePage() {
         this.driver = new DriverManager().getDriver();
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         if (this.driver == null) {
             throw new RuntimeException("Driver is not initialized.");
         }
-        System.out.println("Initializing PageFactory for BasePage...");
+//        System.out.println("Initializing PageFactory for BasePage...");
 //        PageFactory.initElements(this.driver, this);
     }
 
@@ -41,37 +46,27 @@ public class BasePage {
 
     public void waitForVisibility(WebElement e) {
         utils.log().info("waitForVisibility: " + e);
-        WebDriverWait wait = new WebDriverWait(driver, TestUtils.WAIT);
         wait.until(ExpectedConditions.visibilityOf(e));
     }
 
-    public void waitForVisibility(WebElement e, Duration timeOUt) {
-        WebDriverWait wait = new WebDriverWait(driver, timeOUt);
-        wait.until(ExpectedConditions.visibilityOf(e));
+    public boolean waitForElementDisplayed(WebElement e) {
+        utils.log().info("waitForElementDisplayed: " + e);
+        try {
+            wait.until(ExpectedConditions.visibilityOf(e));
+        } catch (TimeoutException | NoSuchElementException ex) {
+            return false;
+        }
+        return e.isDisplayed();
     }
-//
-//    public boolean waitForElementDisplayed(MobileElement e) {
-//        utils.log().info("waitForElementDisplayed: " + e);
-//        WebDriverWait wait = new WebDriverWait(driver, 10);
-//        try {
-//            wait.until(ExpectedConditions.visibilityOf(e));
-//        } catch (TimeoutException | NoSuchElementException ex) {
-//            return false;
-//        }
-//        return e.isDisplayed();
-//    }
-//
-//    public boolean waitForElementDisplayed(By locator) {
-//        WebDriverWait wait = new WebDriverWait(driver, 5);
-//        try {
-//            MobileElement element =
-//                    (MobileElement)
-//                            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-//            return element.isDisplayed();
-//        } catch (TimeoutException | NoSuchElementException ex) {
-//            return false;
-//        }
-//    }
+
+    public boolean waitForElementDisplayed(By locator) {
+        try {
+            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            return element.isDisplayed();
+        } catch (TimeoutException | NoSuchElementException ex) {
+            return false;
+        }
+    }
 //
 //    public void waitForAllElementPresence(By by) {
 //        WebDriverWait wait = new WebDriverWait(driver, TestUtils.WAIT);

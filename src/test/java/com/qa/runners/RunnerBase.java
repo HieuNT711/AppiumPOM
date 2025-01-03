@@ -29,16 +29,16 @@ public class RunnerBase {
     }
 
     @Parameters({
-        "platformName",
-        "udid",
-        "deviceName",
-        "systemPort",
-        "chromeDriverPort",
-        "deviceIndex",
-        "module",
-        "app",
-        "wdaLocalPort",
-        "webkitDebugProxyPort",
+            "platformName",
+            "udid",
+            "deviceName",
+            "systemPort",
+            "chromeDriverPort",
+            "deviceIndex",
+            "module",
+            "app",
+            "wdaLocalPort",
+            "webkitDebugProxyPort",
     })
     @BeforeClass(alwaysRun = true)
     public void setUpClass(

@@ -23,16 +23,12 @@
     <orderEntry type="library" name="Maven: io.cucumber:html-formatter:19.2.0" level="project" />
     <orderEntry type="library" name="Maven: io.cucumber:ci-environment:9.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.apiguardian:apiguardian-api:1.1.2" level="project" />
-    <orderEntry type="library" name="Maven: io.appium:java-client:8.5.1" level="project" />
-    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-api:4.27.0" level="project" />
-    <orderEntry type="library" name="Maven: org.jspecify:jspecify:1.0.0" level="project" />
-    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-support:4.27.0" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: commons-validator:commons-validator:1.7" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: commons-beanutils:commons-beanutils:1.9.4" level="project" />
-    <orderEntry type="library" scope="RUNTIME" name="Maven: commons-digester:commons-digester:2.1" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.12.0" level="project" />
-    <orderEntry type="library" name="Maven: commons-io:commons-io:2.12.0" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:2.0.7" level="project" />
+    <orderEntry type="library" name="Maven: io.appium:java-client:8.6.0" level="project" />
+    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-api:4.13.0" level="project" />
+    <orderEntry type="library" name="Maven: org.seleniumhq.selenium:selenium-support:4.13.0" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.13.0" level="project" />
+    <orderEntry type="library" name="Maven: commons-io:commons-io:2.14.0" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:2.0.9" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20210307" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.20.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-api:2.20.0" level="project" />
@@ -304,7 +300,5 @@
     <orderEntry type="library" name="Maven: com.vladsch.flexmark:flexmark-profile-pegdown:0.34.30" level="project" />
     <orderEntry type="library" name="Maven: com.vladsch.flexmark:flexmark-util:0.34.30" level="project" />
     <orderEntry type="library" name="Maven: com.vladsch.flexmark:flexmark-youtrack-converter:0.34.30" level="project" />
-    <orderEntry type="library" name="Maven: io.cucumber:cucumber-picocontainer:7.3.2" level="project" />
-    <orderEntry type="library" name="Maven: org.picocontainer:picocontainer:2.15" level="project" />
   </component>
 </module>

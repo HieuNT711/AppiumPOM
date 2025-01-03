@@ -70,8 +70,9 @@
         <dependency>
             <groupId>io.appium</groupId>
             <artifactId>java-client</artifactId>
-            <version>8.5.1</version>
+            <version>8.6.0</version>
         </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.json/json -->
         <dependency>
             <groupId>org.json</groupId>
@@ -200,15 +201,6 @@
             <artifactId>serenity-core</artifactId>
             <version>${serenity.version}</version>
         </dependency>
-
-
-        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-picocontainer</artifactId>
-            <version>7.3.2</version>
-        </dependency>
-
-
+        
     </dependencies>
 </project>
