@@ -84,22 +84,21 @@ public class BasePage {
 //        wait.until(visibilityOfElementLocated(e));
 //    }
 //
-//    public void waitClickableIsTrue(MobileElement mobileElement, long timeOut) {
-//        utils.log().info("waitClickableIsTrue: " + mobileElement);
-//        WebDriverWait wait = new WebDriverWait(driver, timeOut);
-//        wait.until(driver -> mobileElement.getAttribute("clickable").equalsIgnoreCase("True"));
-//    }
+    public void waitClickableIsTrue(WebElement mobileElement) {
+        utils.log().info("waitClickableIsTrue: " + mobileElement);
+        wait.until(driver -> mobileElement.getAttribute("clickable").equalsIgnoreCase("True"));
+    }
 //
 //    public void clear(MobileElement e) {
 //        tryWaitElementClickable(e);
 //        e.clear();
 //    }
 //
-//    public void click(MobileElement e) {
-//        utils.log().info("click: " + e);
-//        waitForElementClickable(e);
-//        e.click();
-//    }
+    public void click(WebElement e) {
+        utils.log().info("click: " + e);
+        waitForElementClickable(e);
+        e.click();
+    }
 //
 //    public void click(By e) {
 //        waitForVisibility(e);
@@ -341,10 +340,9 @@ public class BasePage {
 //                .perform();
 //    }
 //
-//    public void waitForElementClickable(MobileElement elm) {
-//        WebDriverWait wait = new WebDriverWait(driver, 30);
-//        wait.until(ExpectedConditions.elementToBeClickable(elm));
-//    }
+    public void waitForElementClickable(WebElement elm) {
+        wait.until(ExpectedConditions.elementToBeClickable(elm));
+    }
 //
 //    public void waitForElementClickable(By locator) {
 //        WebDriverWait wait = new WebDriverWait(driver, TestUtils.WAIT);
