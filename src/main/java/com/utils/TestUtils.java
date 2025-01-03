@@ -5,10 +5,11 @@ import org.apache.logging.log4j.Logger;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 
 public class TestUtils {
-    public static final long WAIT = 60;
+    public static final Duration WAIT = Duration.ofSeconds(60);
 
     public String dateTime() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");

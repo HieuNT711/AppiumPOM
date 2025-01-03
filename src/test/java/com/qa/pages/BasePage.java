@@ -5,12 +5,14 @@ import core.DriverManager;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.pagefactory.AppiumFieldDecorator;
-import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class BasePage {
-    private final AppiumDriver driver;
+    protected final AppiumDriver driver;
     TestUtils utils = new TestUtils();
 
     protected static final String NOT_DISPLAY_MESSAGE = "Text [%s] is not display!";
@@ -22,7 +24,7 @@ public class BasePage {
             throw new RuntimeException("Driver is not initialized.");
         }
         System.out.println("Initializing PageFactory for BasePage...");
-        PageFactory.initElements(new AppiumFieldDecorator(this.driver), this);
+//        PageFactory.initElements(this.driver, this);
     }
 
     public AndroidDriver getAndroidDriver() {
@@ -33,20 +35,20 @@ public class BasePage {
         return (IOSDriver) driver;
     }
 
-//    public WebDriverWait createExplicitWait(long timeout) {
-//        return new WebDriverWait(this.driver, timeout);
-//    }
+    public WebDriverWait createExplicitWait(Duration timeout) {
+        return new WebDriverWait(this.driver, timeout);
+    }
 
-//    public void waitForVisibility(MobileElement e) {
-//        utils.log().info("waitForVisibility: " + e);
-//        WebDriverWait wait = new WebDriverWait(driver, TestUtils.WAIT);
-//        wait.until(ExpectedConditions.visibilityOf(e));
-//    }
-//
-//    public void waitForVisibility(MobileElement e, long timeOUt) {
-//        WebDriverWait wait = new WebDriverWait(driver, timeOUt);
-//        wait.until(ExpectedConditions.visibilityOf(e));
-//    }
+    public void waitForVisibility(WebElement e) {
+        utils.log().info("waitForVisibility: " + e);
+        WebDriverWait wait = new WebDriverWait(driver, TestUtils.WAIT);
+        wait.until(ExpectedConditions.visibilityOf(e));
+    }
+
+    public void waitForVisibility(WebElement e, Duration timeOUt) {
+        WebDriverWait wait = new WebDriverWait(driver, timeOUt);
+        wait.until(ExpectedConditions.visibilityOf(e));
+    }
 //
 //    public boolean waitForElementDisplayed(MobileElement e) {
 //        utils.log().info("waitForElementDisplayed: " + e);

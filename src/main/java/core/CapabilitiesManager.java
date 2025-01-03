@@ -1,16 +1,10 @@
 package core;
 
 import com.utils.TestUtils;
-
 import io.appium.java_client.android.options.UiAutomator2Options;
 import io.appium.java_client.remote.MobileCapabilityType;
 
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.http.ClientConfig;
-
 import java.io.IOException;
-import java.net.URL;
-import java.time.Duration;
 
 public class CapabilitiesManager {
     TestUtils utils = new TestUtils();
