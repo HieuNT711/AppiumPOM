@@ -3,13 +3,11 @@
 <suite name="Suite Parallel" parallel="tests">
     <test name="Run with platform Android 1">
         <parameter name="platformName" value="Android"/>
-        <parameter name="udid" value="R58N21SLEWY"/>
+        <parameter name="udid" value="R52X6037RTA"/>
         <parameter name="deviceName" value="Xiaomi 11T"/>
-        <parameter name="systemPort" value="10000"/>
-        <parameter name="chromeDriverPort" value="11000"/>
         <parameter name="deviceIndex" value="device1"/>
         <parameter name="module" value="transfer"/>
-        <parameter name="app" value="D:\AppiumCode\AppiumPOM\src\test\resources\features\data\crosselling_mic.apk"/>
+        <parameter name="app" value="D:\Hieunt16\SourceCode\AppiumPOM\AppiumPOM\src\test\resources\features\data\starbucks.apk"/>
         <classes>
             <class name="com.qa.runners.AndroidDebugRunner"/>
         </classes>
@@ -17,15 +15,13 @@
 
     <test name="Run with platform Android 2">
         <parameter name="platformName" value="Android"/>
-        <parameter name="udid" value="emulator-5554"/>
+        <parameter name="udid" value="0N14223I22102C92"/>
         <parameter name="deviceName" value="Xiaomi 11T"/>
-        <parameter name="systemPort" value="10000"/>
-        <parameter name="chromeDriverPort" value="11000"/>
-        <parameter name="deviceIndex" value="device2"/>
+        <parameter name="deviceIndex" value="device1"/>
         <parameter name="module" value="transfer"/>
-        <parameter name="app" value="D:\AppiumCode\AppiumPOM\src\test\resources\features\data\crosselling_mic.apk"/>
+        <parameter name="app" value="D:\Hieunt16\SourceCode\AppiumPOM\AppiumPOM\src\test\resources\features\data\starbucks.apk"/>
         <classes>
-            <class name="com.qa.runners.AndroidDebugRunner2"/>
+            <class name="com.qa.runners.AndroidDebugRunner"/>
         </classes>
     </test>
 

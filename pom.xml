@@ -25,9 +25,11 @@
                 <configuration>
                     <!-- Suite testng xml file to consider for test execution -->
                     <suiteXmlFiles>
+                        <suiteXmlFile>src/test/resources/parallel.xml</suiteXmlFile>
                         <suiteXmlFile>src/test/resources/android.xml</suiteXmlFile>
-                        <suiteXmlFile>src/test/resources/ios.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <parallel>tests</parallel> <!-- Có thể đổi thành classes/tests -->
+                    <threadCount>5</threadCount> <!-- Số luồng cho test song song -->
                 </configuration>
             </plugin>
 <!--            update lên java17 cần plugin này-->
@@ -201,6 +203,6 @@
             <artifactId>serenity-core</artifactId>
             <version>${serenity.version}</version>
         </dependency>
-        
+
     </dependencies>
 </project>
